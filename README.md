@@ -70,11 +70,10 @@ mlbom-verify verify \
   --strict
 ```
 
-## Example CycloneDX ML-BOM Artifact
+## Example CycloneDX ML-BOM Artifact & Walkthrough
 
-A sample attestation output demonstrating how drift metrics and model card properties are structured within a CycloneDX v1.6 component is provided in:
-
-[`examples/sample-mlbom.cdx.json`](examples/sample-mlbom.cdx.json)
+- **Sample Artifact:** A complete CycloneDX v1.6 attestation file demonstrating how drift metrics and model properties are serialised is available in [`examples/sample-mlbom.cdx.json`](examples/sample-mlbom.cdx.json).
+- **End-to-End Walkthrough:** A step-by-step scenario demonstrating how `mlbom-verify` detects silent model degradation and blocks a faulty CI/CD deployment is provided in [`examples/walkthrough/README.md`](examples/walkthrough/README.md).
 
 ## CI/CD Integration
 
