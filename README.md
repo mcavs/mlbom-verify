@@ -1,6 +1,6 @@
 # mlbom-verify
 
-Automated Quality, Drift, and Explainability Attestation for the Open AI/ML Supply Chain.
+Automated Quality, Drift, and Explainability Verification for the Open AI/ML Supply Chain.
 
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 [![Standards](https://img.shields.io/badge/standard-CycloneDX%201.6-orange.svg)](https://cyclonedx.org)
@@ -45,10 +45,10 @@ Modern software pipelines increasingly ingest and deploy open-source machine lea
 
 - **Statistical Drift Engine:** Computes Wasserstein distance, Population Stability Index (PSI), and Kolmogorov-Smirnov tests across feature streams using local quantile sketches and binned histograms.
 - **Concept & Profile Drift Detection:** Integrates the Profile Drift Detection (PDD) method based on Partial Dependence Profiles ([Dar & Cavus, 2026](#references)), providing interpretable diagnostics on which variables drive prediction shift.
-- **Dynamic Model Card & Explanation Attestation:** Converts static Model Card metadata into verifiable runtime declarations and verifies explanation stability bounds inspired by Explanation Cards ([Günther et al., 2026](#references)).
+- **Dynamic Model Card & Explanation Verification:** Converts static Model Card metadata into verifiable runtime declarations and verifies explanation stability bounds inspired by Explanation Cards ([Günther et al., 2026](#references)).
 - **Zero-Knowledge Privacy:** Uses data sketches and SHA-256 reference digests. Raw training or inference logs are never embedded in the exported ML-BOM artifact.
 - **Standardized Output:** Serialises evaluation results directly into OWASP CycloneDX v1.6+ ML-BOM format using namespaced properties (`mlbom:drift:*`, `mlbom:explanation:*`).
-- **Cryptographic Supply Chain Signing:** Pairs with Sigstore (`cosign`) to sign ML-BOMs as tamper-proof in-toto attestations in CI/CD pipelines.
+- **Cryptographic Supply Chain Signing:** Pairs with Sigstore (`cosign`) to sign ML-BOMs as tamper-proof verification records in CI/CD pipelines.
 
 ## CLI Usage (Specification)
 
@@ -99,7 +99,7 @@ jobs:
             --output mlbom.cdx.json
 ```
 
-## References & Academic Grounding
+## References
 
 - **Dar, U. and Cavus, M. (2026).** *From XAI to MLOps: Explainable concept drift detection with the partial dependence profiles-based approach.* **Future Generation Computer Systems**, 183, 108586. [doi:10.1016/j.future.2026.108586](https://doi.org/10.1016/j.future.2026.108586)
 - **Dar, U. and Cavus, M. (2026).** *datadriftR: An R package for data drift detection.* **Journal of Open Source Software**, 11(119), 9481.
