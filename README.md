@@ -14,31 +14,11 @@ Modern software pipelines increasingly ingest and deploy open-source machine lea
 
 `mlbom-verify` bridges software supply chain security and statistical machine learning verification. It automates model quality auditing, computes statistical drift metrics, checks explanation stability bounds, and serialises the resulting verification metadata into standardized **CycloneDX Machine Learning Bill of Materials (ML-BOM)**.
 
-```
-       +---------------------------------------------+
-       | Baseline Reference & Production Stream Data  |
-       +---------------------------------------------+
-                              |
-                              v
-       +---------------------------------------------+
-       |   mlbom-verify Statistical Audit Engine     |
-       |  - Covariate & Concept Drift (PDD / L1)     |
-       |  - Statistical Distance (Wasserstein, PSI)  |
-       |  - Explanation Stability (Additivity/Bounds)|
-       +---------------------------------------------+
-                              |
-                              v
-       +---------------------------------------------+
-       |     CycloneDX v1.6/v1.7 ML-BOM Serializer   |
-       |    (Namespaced Properties & Model Cards)    |
-       +---------------------------------------------+
-                              |
-                              v
-       +---------------------------------------------+
-       |  Cryptographic Attestation & Policy Gate    |
-       |  - Sigstore / Cosign Keyless Signing        |
-       |  - CI/CD Deployment Pass / Fail Thresholds  |
-       +---------------------------------------------+
+```mermaid
+flowchart TD
+    A["Baseline Reference & Production Stream Data"] --> B["mlbom-verify Statistical Audit Engine<br/>• Covariate & Concept Drift (PDD / L1)<br/>• Statistical Distance (Wasserstein, PSI)<br/>• Explanation Stability Bounds"]
+    B --> C["CycloneDX v1.6/v1.7 ML-BOM Serializer<br/>• Namespaced Quality & Drift Properties<br/>• Machine-Readable Model Cards"]
+    C --> D["Cryptographic Verification & Policy Gate<br/>• Sigstore / Cosign Keyless Signing<br/>• Automated CI/CD Pass / Fail Gate"]
 ```
 
 ## Key Capabilities
