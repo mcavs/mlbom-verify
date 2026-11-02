@@ -1,0 +1,79 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:3e672450-48e0-4a82-8e3a-7b3b75496417",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-11-02T18:00:00Z",
+    "tools": [
+      {
+        "vendor": "mlbom-verify",
+        "name": "mlbom-verify-cli",
+        "version": "0.1.0-alpha"
+      }
+    ],
+    "component": {
+      "type": "machine-learning-model",
+      "name": "credit-risk-classifier",
+      "version": "1.2.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "a35d9b546bc18e38d72f9be7b11d33cb8e68cfb9ef5f483759e663a89e9d9e4a"
+        }
+      ],
+      "modelCard": {
+        "modelParameters": {
+          "task": "classification",
+          "architecture": "gradient-boosted-trees",
+          "optimization": "log-loss"
+        },
+        "quantitativeAnalysis": {
+          "performanceMetrics": [
+            {
+              "type": "roc-auc",
+              "value": "0.892",
+              "slice": "validation-holdout"
+            },
+            {
+              "type": "f1-score",
+              "value": "0.835",
+              "slice": "validation-holdout"
+            }
+          ]
+        }
+      },
+      "properties": [
+        {
+          "name": "mlbom:drift:status",
+          "value": "passed"
+        },
+        {
+          "name": "mlbom:drift:method",
+          "value": "Profile-Drift-Detection-PDD"
+        },
+        {
+          "name": "mlbom:drift:max_wasserstein_distance",
+          "value": "0.042"
+        },
+        {
+          "name": "mlbom:drift:psi_score",
+          "value": "0.058"
+        },
+        {
+          "name": "mlbom:drift:baseline_digest",
+          "value": "sha256:7e8a93bf3364bfa1e6d234a9ef1c2de9f018e6c7ab536341fae019283749214d"
+        },
+        {
+          "name": "mlbom:explanation:attribution_stability",
+          "value": "0.964"
+        },
+        {
+          "name": "mlbom:compliance:eu_ai_act:article_13",
+          "value": "true"
+        }
+      ]
+    }
+  }
+}

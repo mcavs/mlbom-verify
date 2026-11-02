@@ -1,0 +1,17 @@
+name: ci
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate CycloneDX Examples
+        run: |
+          python3 -c "import json; json.load(open('examples/sample-mlbom.cdx.json'))"
+          echo "Schema JSON syntax valid."
